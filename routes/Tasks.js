@@ -21,7 +21,7 @@ router.post('/addTask', FetchUser, async (req, res) => {
 
 router.put('/updateTaskText/:id', FetchUser, async (req, res) => {
     const { name, description } = req.body;
-
+    
     try {
         const task = await Task.findByIdAndUpdate(req.params.id, { name, description }, { new: true }).populate('project');
         res.status(200).json({ success: true, task });
