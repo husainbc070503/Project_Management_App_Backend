@@ -54,7 +54,6 @@ router.post('/register', async (req, res) => {
         const secPass = await bcryptjs.hash(password, salt);
 
         user = await User.create({ name, email, password: secPass, profilePic });
-
         res.status(200).json({ success: true, user });
 
     } catch (error) {
